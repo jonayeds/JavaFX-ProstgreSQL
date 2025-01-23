@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="list_panel" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bd.edu.seu.movieproject.MovieListController">
+   <children>
+      <TableView fx:id="movie_tableview" layoutX="100.0" layoutY="68.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+        <columns>
+          <TableColumn fx:id="movie_id_col" prefWidth="75.0" text="Movie ID" />
+          <TableColumn fx:id="movie_name_col" prefWidth="75.0" text="Movie Name" />
+            <TableColumn fx:id="movie_category_col" prefWidth="75.0" text="Movie Category" />
+            <TableColumn fx:id="movie_release_date_col" prefWidth="75.0" text="Movie Release Date" />
+            <TableColumn fx:id="movie_country_col" prefWidth="75.0" text="Country" />
+            <TableColumn fx:id="action_col" prefWidth="75.0" text="Action" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>
