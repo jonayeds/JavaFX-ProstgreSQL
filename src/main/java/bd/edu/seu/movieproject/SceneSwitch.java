@@ -2,7 +2,9 @@ package bd.edu.seu.movieproject;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -28,6 +30,23 @@ public class SceneSwitch {
             controller.setValues(movie);
             page.getChildren().removeAll();
             page.getChildren().setAll(root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public SceneSwitch(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("popup-permission.fxml"));
+            Parent root = loader.load();
+            Stage popupStage = new Stage();
+
+
+            Scene scene = new Scene(root);
+            popupStage.setScene(scene);
+
+            popupStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -78,15 +78,12 @@ public class MovieListController implements Initializable {
                             System.out.println("Edit of: " + m.getMovieID());
                             // apply your edit logic
                             new SceneSwitch(list_panel, "update-movie_view.fxml", m);
-
-
-
-
                         });
                         delete.setOnAction(event -> {
                             Movie m = getTableView().getItems().get(getIndex());
                             System.out.println("Delete of: " + m.getMovieID());
                             // apply your delete logic
+                            new SceneSwitch();
                         });
                         hBox.getChildren().addAll(edit,delete);
                         setGraphic(hBox);
