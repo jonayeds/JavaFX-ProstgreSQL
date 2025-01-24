@@ -83,7 +83,7 @@ public class MovieListController implements Initializable {
                             Movie m = getTableView().getItems().get(getIndex());
                             System.out.println("Delete of: " + m.getMovieID());
                             // apply your delete logic
-                            new SceneSwitch();
+                            new SceneSwitch(m);
                         });
                         hBox.getChildren().addAll(edit,delete);
                         setGraphic(hBox);

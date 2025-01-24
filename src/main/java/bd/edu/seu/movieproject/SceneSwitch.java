@@ -36,13 +36,13 @@ public class SceneSwitch {
 
     }
 
-    public SceneSwitch(){
+    public SceneSwitch(Movie movie){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("popup-permission.fxml"));
             Parent root = loader.load();
             Stage popupStage = new Stage();
-
-
+            PermissionWindowController controller = loader.getController();
+            controller.setMovie(movie);
             Scene scene = new Scene(root);
             popupStage.setScene(scene);
 
