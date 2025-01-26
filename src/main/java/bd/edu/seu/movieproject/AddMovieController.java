@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class AddMovieController implements Initializable {
     private DatePicker date_movie_release;
     @FXML
     private ComboBox<String> cb_movie_country;
+    @FXML
+    public AnchorPane add_panel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -72,9 +75,10 @@ public class AddMovieController implements Initializable {
             preparedStatement.setString(2, movieCategory);
             preparedStatement.setDate(3, movieReleaseDate);
             preparedStatement.setString(4, movieCountry);
-            System.out.println(movieName + movieCategory + movieReleaseDate + movieCountry);
             preparedStatement.executeUpdate();
             System.out.println("Movie Added Successfully!!!");
+            new SceneSwitch(add_panel, "movie-list_view.fxml");
+
         } catch (SQLException e) {
             System.err.println(e.getMessage());
             System.err.println("Connection problem!!!");
