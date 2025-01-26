@@ -40,7 +40,7 @@ public class MovieListController implements Initializable {
     @FXML
     private TableColumn action_col;
     @FXML
-    private AnchorPane list_panel;
+    public AnchorPane list_panel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

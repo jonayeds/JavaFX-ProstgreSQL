@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.sql.*;
@@ -14,12 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
 public class UpdateMovieController implements Initializable {
     public TextField tf_movie_name;
     public DatePicker date_movie_release;
     public ComboBox cb_movie_country;
     public ComboBox cb_movie_category;
-
+    @FXML
+    public AnchorPane update_panel;
 
     private int movieId ;
 
@@ -48,8 +51,6 @@ public class UpdateMovieController implements Initializable {
         cb_movie_country.getItems().addAll(countryList);
         cb_movie_country.getSelectionModel().selectFirst();
         cb_movie_category.getSelectionModel().selectFirst();
-
-
     }
 
 
@@ -80,15 +81,12 @@ public class UpdateMovieController implements Initializable {
             preparedStatement.setString(2, cb_movie_category.getValue().toString());
             preparedStatement.setString(3, cb_movie_country.getValue().toString());
             preparedStatement.setDate(4, newReleaseDate);
-
-
             preparedStatement.setInt(5, movieId);
-            System.out.println(movieId);
-
-
             int update = preparedStatement.executeUpdate();
             if(update == 1){
                 System.out.println("Successfully updated");
+                new SceneSwitch(update_panel, "movie-list_view.fxml");
+
             }else{
                 System.out.println("Failed to updated");
             }
